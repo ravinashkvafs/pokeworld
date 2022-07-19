@@ -1,0 +1,25 @@
+<section infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="next()">
+
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+
+        <section fxFlex="25" fxLayout="column" fxLayoutAlign="start center" *ngFor="let pokemon of list"
+            [id]="pokemon?.id" class="poke-card" [ngStyle]="pokemon?.cssStyle || {}">
+
+            <span class="poke-id">#{{pokemon?.id}}</span>
+
+            <span class="poke-img-wrap">
+                <img [src]="pokemon?.image" class="poke-img" />
+            </span>
+
+            <span class="poke-name">{{pokemon?.name}}</span>
+
+            <section>
+                <img *ngFor="let type of pokemon?.types" class="poke-type" [src]="'../../assets/icons/' + type + '.png'"
+                    [alt]="type">
+            </section>
+
+        </section>
+
+    </section>
+
+</section>
